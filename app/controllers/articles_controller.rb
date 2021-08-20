@@ -1,3 +1,5 @@
+require "open-uri"
+
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
@@ -21,6 +23,8 @@ class ArticlesController < ApplicationController
 
   # POST /articles
   def create
+    file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+
     @article = Article.new(article_params)
 
     if @article.save

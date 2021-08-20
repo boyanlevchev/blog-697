@@ -13,9 +13,23 @@
 <p>
   <strong>Image:</strong>
 
+  <%# IF SINGLE PHOTO, WE DO PHOTO.ATTACHED? %>
+  <%# Uncomment below by removing all the hashtags (use find and replace, or command-d to select all hashtags) %>
+  <%# if @article.photo.attached? %>
+    <%#= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
+
+    <%# <div class="card-category" style="height: 100px;background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('= cl_image_path @article.photo.key, height: 300, crop: :fill')"> %>
+      <%# Cool article %>
+    <%# </div> %>
+  <%# end %>
+
+  <%# IF MULTIPLE PHOTOS %>
+  <% if @article.photos.attached? %>
+  <%# WE MUST LOOP OVER PHOTOS BEFORE DISPLAYING %>
     <% @article.photos.each do |photo| %>
       <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
+  <% end %>
 </p>
 
 

@@ -6,6 +6,7 @@
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :body %>
+    <%# WE ADD A PHOTOS FILE UPLOAD FIELD - AND GIVE IT MULTIPLE: TRUE ATTRIBUTE SO WE CAN UPLOAD MULTIPE FILES AT ONCE %>
     <%= f.input :photos, as: :file, input_html: { multiple: true }  %>
   </div>
 

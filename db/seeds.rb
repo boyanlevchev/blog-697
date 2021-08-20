@@ -10,5 +10,8 @@ require "open-uri"
 
 file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
 article = Article.new(title: 'NES', body: "A great console")
+# Active record supplies .attach method, which we can use to attach files after creating an instance
+# This could be repurposed to be used in the controller, if we want to, for example, upload
+# photos by allowing a user to supply a URL to a photo online
 article.photo.attach(io: file, filename: 'nes.png', content_type: 'image/png')
 article.save
